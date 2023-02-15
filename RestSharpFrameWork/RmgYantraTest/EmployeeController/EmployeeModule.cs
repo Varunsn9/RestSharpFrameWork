@@ -29,6 +29,8 @@ namespace RestSharpFrameWork.RmgYantraTest.EmployeeController
             RestSharpUtils rt = new RestSharpUtils();
             var response = rt.Get(EndPoints.employeesUserName, "varunsn38");
             Console.WriteLine(response.IsSuccessful);
+            Assert.IsTrue(response.IsSuccessful);
+            
         }
     }
 }
