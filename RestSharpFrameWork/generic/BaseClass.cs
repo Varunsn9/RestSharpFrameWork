@@ -20,6 +20,13 @@ namespace RestSharpFrameWork.generic
         public OdbcCommand command;
         public OdbcConnection connection;
 
+        
+        ExcelUtility excelUtility=new ExcelUtility();
+        ODBCValidation oDBCValidation = new ODBCValidation();
+        RestSharpUtils restSharpUtils = new RestSharpUtils();
+        Utilitys utilitys= new Utilitys();
+        Validation validation= new Validation();
+
         [AssemblyInitialize]
         public static void AssemblyInitilizer(TestContext context)
         {
@@ -29,16 +36,21 @@ namespace RestSharpFrameWork.generic
         [ClassInitialize]
         public static void DataBase(TestContext context)
         {
-            Console.WriteLine("hello");
-
 
         }
 
         [TestInitialize]
-        public void BeforeTest()
+        public void OpeningDataBase()
         {
             connection = new OdbcConnection(dataBaseConnection);
             connection.Open();
+
+        }
+
+        [TestCleanup]
+        public void ClosingDataBase()
+        {
+            connection.Close();
 
         }
     }

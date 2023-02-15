@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
 {
-    
+    /// <summary>
+    /// Project Poco Class
+    /// </summary>
     public class Project
     {
         [JsonProperty("createdBy")]
@@ -25,7 +27,7 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
        
         
         /// <summary>
-        /// 
+        /// Method to return body type of Employee
         /// </summary>
         /// <param name="Status">should provide a Status parameter
         /// </param>

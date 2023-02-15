@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace RestSharpFrameWork.RmgYantraTest
 {
+    /// <summary>
+    /// TestMethods for testing
+    /// </summary>
     [TestClass]
     public class PostProject : BaseClass
     {

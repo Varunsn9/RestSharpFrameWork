@@ -12,7 +12,9 @@ using TechTalk.SpecFlow.Events;
 using Assert = NUnit.Framework.Assert;
 
 namespace RestSharpFrameWork
-{
+{/// <summary>
+/// TestMethods for testing
+/// </summary>
     [TestClass]
     public class UnitTest1
     {

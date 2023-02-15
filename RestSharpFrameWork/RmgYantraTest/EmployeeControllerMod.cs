@@ -14,13 +14,16 @@ using RestSharpFrameWork.PocoClassRmgYantra.EmployeeController;
 
 namespace RestSharpFrameWork.RmgYantraTest
 {
+    /// <summary>
+    /// simple test methods
+    /// </summary>
     [TestClass]
     public class EmployeeControllerMod
     {
         internal string url = "http://localhost:8084/employee";
 
         [TestMethod]
-        [TestCategory("Get"), TestCategory("EmployeeController")]
+        [TestCategory("Get"), TestCategory("EmployeeController"),Priority(1)]
         public void GetEmployees()
         {
             RestClient client = new RestClient(url);

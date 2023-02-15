@@ -10,7 +10,10 @@ namespace RestSharpFrameWork.generic
     
     public  class Utilitys
     {
-        
+        /// <summary>
+        /// Random method to generate numbers
+        /// </summary>
+        /// <returns></returns>
         public int RandomInt()
         {
             var random = new Random();

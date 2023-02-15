@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
 {
-    
+    /// <summary>
+    /// Employee Poco Class
+    /// </summary>
     public class Employee
     {
         [JsonProperty("designation")]
@@ -40,7 +42,14 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
         [JsonProperty("username")]
         public string username { get; set; }
 
-public Employee employeeData(string userName) {
+
+        /// <summary>
+        /// Method to return body of employee returns Employee type
+        /// </summary>
+        /// <param name="userName">changing only username 
+        /// all the other data can be same</param>
+        /// <returns></returns>
+            public Employee employeeData(string userName) {
             var employee = new Employee
             {
                 designation = "Automation Test Engineer",

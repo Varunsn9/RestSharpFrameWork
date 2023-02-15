@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace RestSharpFrameWork.generic
 {
-
+/// <summary>
+/// ExcelUtility to fetch the data from Excel
+/// </summary>
     public class ExcelUtility
     {
         

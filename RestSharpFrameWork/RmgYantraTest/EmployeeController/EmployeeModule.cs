@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace RestSharpFrameWork.RmgYantraTest.EmployeeController
 {
+
+    /// <summary>
+    /// Test Methods
+    /// </summary>
     [TestClass]
+    [TestCategory("GetEmployee")]
     public class EmployeeModule
     {
         [TestMethod]

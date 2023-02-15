@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace RestSharpFrameWork.generic
 {
+    //Used for Testing only 
     [TestClass]
     public class DataBaseUtil : BaseClass
     {

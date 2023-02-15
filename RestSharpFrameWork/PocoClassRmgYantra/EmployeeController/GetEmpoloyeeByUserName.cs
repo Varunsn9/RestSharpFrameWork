@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 
 namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
 {
+    /// <summary>
+    /// Simple Test method
+    /// </summary>
     [TestClass]
     public class GetEmpoloyeeByUserName
     {
         Employee employee;
  
-        [TestMethod,TestCategory("Post")]
+        [TestMethod]
         public void Get() 
         {
             string url = "http://localhost:3000";
