@@ -12,44 +12,44 @@ using TechTalk.SpecFlow;
 
 namespace RestSharpFrameWork.RmgYantraTest
 {
-    [TestClass]
+    
     public class GetTest : BaseClass
     {
         [TestMethod]
-        
-        [TestCategory("GET")]
+
+        [TestCategory("Practice")]
         public void GetEmployeesTest()
         {
             RestSharpUtils rsu= new RestSharpUtils();
             
-            var response=rsu.Get(EndPoints.employees);
+            var response=rsu.Get(endPoints.employees);
             Console.WriteLine(response.IsSuccessful); 
             var cookies=response.Cookies;
         }
+
         [TestMethod]
-        [TestCategory("GET")]
+        [TestCategory("Practice")]
         public void GetEmployeeTest()
         {
             RestSharpUtils rsu = new RestSharpUtils();
 
-            var response = rsu.Get(EndPoints.employeesId, "TYP_00410");
+            var response = rsu.Get(endPoints.employeesId, "TYP_00410");
             Console.WriteLine(response.IsSuccessful);
-            Validation val=new Validation();
-            val.CookiesValidation(response);
-            val.HeaderValidation(response, "Vary");
+            rsu.validationCookies(response);
+            rsu.validationHeader(response, "Vary");
 
         }
 
         [TestMethod]
-        [TestCategory("GET")]
+        [TestCategory("Practice")]
         public void validateEmployee()
         {
             RestSharpUtils rsu = new RestSharpUtils();
-            var response = rsu.Get(EndPoints.employees, "TYP_00410");
+            var response = rsu.Get(endPoints.employees, "TYP_00410");
             Console.WriteLine(response.IsSuccessful);
-            Validation val=new Validation();
+           
             var req=response.Content;
-            bool value=val.JSONBodyValidation(response, "project");
+            bool value= rsu.validationJSONBody(response, "project");
             Console.WriteLine(value);
         }
     }

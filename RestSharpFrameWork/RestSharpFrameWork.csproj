@@ -143,6 +143,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="TechTalk.SpecFlow, Version=3.9.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.3.9.74\lib\net461\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
@@ -152,31 +153,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="generic\BaseClass.cs" />
-    <Compile Include="generic\DataBaseUtil.cs" />
+    <Compile Include="Practice\DataBaseUtil.cs" />
     <Compile Include="generic\EndPoints.cs" />
     <Compile Include="generic\ExcelUtility.cs" />
     <Compile Include="generic\ODBCValidation.cs" />
     <Compile Include="generic\RestSharpUtils.cs" />
-    <Compile Include="generic\Utilitys.cs" />
-    <Compile Include="generic\Validation.cs" />
-    <Compile Include="PocoClassRmgYantra\EmployeeController\Employee.cs" />
-    <Compile Include="PocoClassRmgYantra\EmployeeController\GetEmpoloyeeByUserName.cs" />
-    <Compile Include="PocoClassRmgYantra\EmployeeController\Project.cs" />
-    <Compile Include="RmgYantraTest\EmployeeControllerMod.cs" />
-    <Compile Include="RmgYantraTest\EmployeeController\EmployeeModule.cs" />
-    <Compile Include="RmgYantraTest\EmployeePost.cs" />
-    <Compile Include="RmgYantraTest\GetTest.cs" />
-    <Compile Include="RmgYantraTest\PostEmployees.cs" />
-    <Compile Include="RmgYantraTest\PostProject.cs" />
+    <Compile Include="generic\CSharpUtilitys.cs" />
+    <Compile Include="PocoClassRmgYantra\Employee.cs" />
+    <Compile Include="Practice\GetEmpoloyeeByUserName.cs" />
+    <Compile Include="PocoClassRmgYantra\Project.cs" />
+    <Compile Include="Practice\EmployeeControllerMod.cs" />
+    <Compile Include="Practice\EmployeePost.cs" />
+    <Compile Include="Practice\GetTest.cs" />
+    <Compile Include="Practice\OdbcTestClass.cs" />
+    <Compile Include="Practice\PostEmployees.cs" />
+    <Compile Include="Practice\PostProject.cs" />
+    <Compile Include="RmgYantraTest\GetRmgTest.cs" />
+    <Compile Include="RmgYantraTest\PostRmgTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Configure.Designer.runsettings" />
     <None Include="packages.config" />
+    <None Include="Proj.Designer.runsettings" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configure.resx" />
+    <EmbeddedResource Include="Proj.resx" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

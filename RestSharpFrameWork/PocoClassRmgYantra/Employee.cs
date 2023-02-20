@@ -49,20 +49,21 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
         /// <param name="userName">changing only username 
         /// all the other data can be same</param>
         /// <returns></returns>
-            public Employee employeeData(string userName) {
-            var employee = new Employee
+            public Employee employeeData(string userName) 
             {
-                designation = "Automation Test Engineer",
-                experience = 4.1,
-                empName = "varu1n",
-                email = "varu1nsn9@gmail.com",
-                username = userName,
-                project = "Unitte",
-                role = "ROLE_EMPLOYEE",
-                mobileNo = "9845632103"
-            };
-            return employee;
-        }
+                var employee = new Employee
+                {
+                    designation = "Automation Test Engineer",
+                    experience = 4.1,
+                    empName = "varu1n",
+                    email = "varu1nsn9@gmail.com",
+                    username = userName,
+                    project = "Unitte",
+                    role = "ROLE_EMPLOYEE",
+                    mobileNo = "9845632103"
+                };
+                    return employee;
+            }
 
     }
 

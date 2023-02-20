@@ -12,12 +12,13 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
     /// <summary>
     /// Simple Test method
     /// </summary>
-    [TestClass]
+  
     public class GetEmpoloyeeByUserName
     {
         Employee employee;
  
         [TestMethod]
+        [TestCategory("Practice")]
         public void Get() 
         {
             string url = "http://localhost:3000";

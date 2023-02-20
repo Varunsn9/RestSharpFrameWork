@@ -10,15 +10,21 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls.WebParts;
 
 namespace RestSharpFrameWork.generic
-{
-    [TestClass]   
+{  
     public class ODBCValidation : BaseClass
     {
         OdbcCommand command;
+        string connections = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+        
+        public ODBCValidation()
+        {
+            OdbcConnection odbcConnection = new OdbcConnection(connections);
+            odbcConnection.Open();
+        }
 
 
         /// <summary>
-        /// DataValidate method is used to validate provide bool value
+        /// DataValidate method is used to validate and provide bool value
         /// </summary>
         /// <param name="expectedData">string data to verify</param>
         /// <param name="tableName">string table name data </param>
@@ -26,60 +32,49 @@ namespace RestSharpFrameWork.generic
         /// <returns></returns>
         public bool DataValidate(string expectedData, string tableName , string columnName)
         {
-            OdbcConnection connection = new OdbcConnection(dataBaseConnection);
-            connection.Open();
+            OdbcConnection odbcConnection = new OdbcConnection(connections);
+            odbcConnection.Open();
             string query = "select "+columnName+" from "+tableName+" where "+columnName+ "="+"'"+ expectedData+"'";
-            command = new OdbcCommand(query,connection);
+            command = new OdbcCommand(query,odbcConnection);
             var response=command.ExecuteReader();
+        
+            //  var boolValue=false;
             while (response.Read())
             {
-                Console.WriteLine(response[0]);
+               // Console.WriteLine(response[0]);
                 if (expectedData.Equals(response[0])){
                     return true;
-                    break;
+                    
                 }
                 
             }
-            
             return false;
+            
         }
-        /// <summary>
-        /// Simple test method to test ODBCValidation class 
-        /// </summary>
-        [TestMethod]
-        [TestCategory("ODBC")]
-        public void testingColumns()
+
+        public String DataValidation()
         {
-            ODBCValidation od=new ODBCValidation();
-            var response=od.Table("employee");
-            foreach(string res in response)
-            {
-                Console.WriteLine(res);
-            }
-            var user= od.ColumnData("employee","emp_id");
-            foreach(var use in user)
-            {
-                Console.WriteLine(use);
-            }
-            var user1 = od.ColumnData("project", "created_by");
-            foreach (var use in user1)
-            {
-                Console.WriteLine(use);
-            }
-            var tpe=od.DataValidate("Unitte", "project", "project_name");
-            Console.WriteLine(tpe);
+            string query = "select count(username) from employee";
+            command=new OdbcCommand(query, odbcConnection);
+            var response=command.ExecuteReader();
+            response.Read();
+            var re = response[0].ToString();
+
+            return re;
+            
         }
-        /// <summary>
-        /// Method to return entire table return IList<string> 
-        /// </summary>
-        /// <param name="tableName">table name to fetch the data from</param>
-        /// <returns></returns>
-        public IList<string> Table(string tableName)
+
+
+            /// <summary>
+            /// Method to return entire table return IList<string> 
+            /// </summary>
+            /// <param name="tableName">table name to fetch the data from</param>
+            /// <returns></returns>
+            public IList<string> Table(string tableName)
         {
-            OdbcConnection connection = new OdbcConnection(dataBaseConnection);
-            connection.Open();
+
             string query = "select * from " + tableName;
-            command = new OdbcCommand(query, connection);
+            command = new OdbcCommand(query, odbcConnection);
             var response = command.ExecuteReader();
             string row = "";
 
@@ -99,7 +94,10 @@ namespace RestSharpFrameWork.generic
                      response[10].ToString());
             }
             return columns;
+            
         }
+        
+        
         /// <summary>
         /// method to return the data present in the columns return IList<string>
         /// </summary>
@@ -108,10 +106,11 @@ namespace RestSharpFrameWork.generic
         /// <returns></returns>
         public IList<string> ColumnData(string tableName,string columnName)
         {
-            OdbcConnection connection = new OdbcConnection(dataBaseConnection);
-            connection.Open();
+
+            //OdbcConnection odbcConnection = new OdbcConnection(connections);
+            //odbcConnection.Open();
             string query = "select "+columnName+" from "+tableName;
-            command = new OdbcCommand(query, connection);
+            command = new OdbcCommand(query, odbcConnection);
             var response = command.ExecuteReader();
             int num = 0;
            

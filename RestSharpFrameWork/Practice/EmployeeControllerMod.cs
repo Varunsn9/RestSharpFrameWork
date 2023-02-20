@@ -17,13 +17,14 @@ namespace RestSharpFrameWork.RmgYantraTest
     /// <summary>
     /// simple test methods
     /// </summary>
-    [TestClass]
+    
+    [TestCategory("Practice")]
     public class EmployeeControllerMod
     {
         internal string url = "http://localhost:8084/employee";
 
         [TestMethod]
-        [TestCategory("Get"), TestCategory("EmployeeController"),Priority(1)]
+        [TestCategory("Practice")]
         public void GetEmployees()
         {
             RestClient client = new RestClient(url);
@@ -33,7 +34,7 @@ namespace RestSharpFrameWork.RmgYantraTest
         }
 
         [TestMethod]
-        [TestCategory("Get"), TestCategory("EmployeeController")]
+        [TestCategory("Practice")]
         public void GetEmployee()
         {
             RestClient client = new RestClient(url);
@@ -42,8 +43,9 @@ namespace RestSharpFrameWork.RmgYantraTest
             var output = client.Execute(request);
             Console.WriteLine(output.Content);
         }
+
         [TestMethod]
-        [TestCategory("Get"), TestCategory("EmployeeController")]
+        [TestCategory("Practice")]
         public void GetEmployeeById()
         {
             string url = "http://localhost:8084/employees";
@@ -54,7 +56,7 @@ namespace RestSharpFrameWork.RmgYantraTest
             NUnit.Framework.Assert.AreEqual(HttpStatusCode.OK, output.StatusCode);
         }
         [TestMethod]
-        [TestCategory("Post"), TestCategory("EmployeeController")]
+        [TestCategory("Practice")]
         public void PostEmployee()
         {
             string url = "http://localhost:8084/employees";
@@ -69,7 +71,7 @@ namespace RestSharpFrameWork.RmgYantraTest
             NUnit.Framework.Assert.AreEqual(HttpStatusCode.Created, output.StatusCode);
         }
         [TestMethod]
-        [TestCategory("Get"), TestCategory("EmployeeController")]
+        [TestCategory("Practice")]
         public void GetEmployeeByName()
         {
             RestClient client = new RestClient(url);
@@ -79,7 +81,7 @@ namespace RestSharpFrameWork.RmgYantraTest
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(HttpStatusCode.OK, output.StatusCode);
         }
         [TestMethod]
-        [TestCategory("Post"),TestCategory("EmployeeController")]
+        [TestCategory("Practice")]
         public void DeleteByEmpId()
         {
             RestClient client = new RestClient(url+'s');

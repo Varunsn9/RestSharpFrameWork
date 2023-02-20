@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Dynamitey;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -12,25 +13,27 @@ using System.Threading.Tasks;
 
 namespace RestSharpFrameWork.generic
 {
-    [TestClass]
+    
+
     public class BaseClass
     {
-        
+        public static TestContext testContext;
         public string dataBaseConnection = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
-        public OdbcCommand command;
-        public OdbcConnection connection;
-
-        
-        ExcelUtility excelUtility=new ExcelUtility();
-        ODBCValidation oDBCValidation = new ODBCValidation();
-        RestSharpUtils restSharpUtils = new RestSharpUtils();
-        Utilitys utilitys= new Utilitys();
-        Validation validation= new Validation();
+        public static OdbcConnection odbcConnection;
+        public ExcelUtility excelUtility;
+        public ODBCValidation oDBCValidation;
+        public RestSharpUtils restSharpUtils;
+        public CSharpUtilitys cSharpUtilitys;
+        public IEndPoints endPoints;
 
         [AssemblyInitialize]
-        public static void AssemblyInitilizer(TestContext context)
+        public static void AssemblyInilization(TestContext context)
         {
-
+            /*testContext = context;   
+            string dataBaseConnection = context.Properties["DataBaseURL"].ToString(); ;
+            odbcConnection = new OdbcConnection(dataBaseConnection);
+            odbcConnection.Open();
+*/        
         }
 
         [ClassInitialize]
@@ -42,19 +45,15 @@ namespace RestSharpFrameWork.generic
         [TestInitialize]
         public void OpeningDataBase()
         {
-            connection = new OdbcConnection(dataBaseConnection);
-            connection.Open();
 
         }
 
         [TestCleanup]
         public void ClosingDataBase()
         {
-            connection.Close();
 
         }
-    }
-        
 
     }
+}
 

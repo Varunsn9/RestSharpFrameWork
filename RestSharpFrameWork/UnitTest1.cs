@@ -15,13 +15,13 @@ namespace RestSharpFrameWork
 {/// <summary>
 /// TestMethods for testing
 /// </summary>
-    [TestClass]
+    //[TestClass]
     public class UnitTest1
     {
         string url = "http://localhost:3000/";
 
         [TestMethod]
-        [Category("Smoke")]
+        [TestCategory("Practice")]
         public void Deserialize() 
         {
             RestClient client = new RestClient("http://localhost:3000/");
@@ -41,7 +41,7 @@ namespace RestSharpFrameWork
 
         }
         [TestMethod]
-        [Category("DeserialJson")]
+        [TestCategory("Practice")]
         public void DeserializationJsonObj()
         {
             RestClient client = new RestClient("http://localhost:3000/");
@@ -58,8 +58,8 @@ namespace RestSharpFrameWork
         }
 
         [TestMethod]//using RmgYamtra employees
-        [TestCategory("TestingJSONServer")]
-        public void Employees()
+        [TestCategory("Practice")]
+        public void TestingJsonServerEmployees()
         {
             RestClient client = new RestClient("http://localhost:3000/");
 
@@ -70,7 +70,7 @@ namespace RestSharpFrameWork
 
         }
         [TestMethod]
-        [TestCategory("postTesting"),]
+        [TestCategory("Practice")]
         public void postProfile()
         {
             RestClient client = new RestClient(url);
@@ -81,7 +81,7 @@ namespace RestSharpFrameWork
             Console.WriteLine(output.StatusCode);
         }
         [TestMethod]
-        [TestCategory("postTesting")]
+        [TestCategory("Practice")]
         public void PostingProfile()
         {
             var client = new RestClient("http://localhost:3000/");
@@ -96,8 +96,8 @@ namespace RestSharpFrameWork
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
         [TestMethod]
-        [TestCategory("postTesting")]
-        public void Creating_Comments()
+        [TestCategory("Practice")]
+        public void postCreating_Comments()
         {
             RestClient client = new RestClient(url);
             RestRequest request = new RestRequest("/comments/5", Method.DELETE);

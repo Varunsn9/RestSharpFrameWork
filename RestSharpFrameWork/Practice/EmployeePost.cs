@@ -13,16 +13,16 @@ namespace RestSharpFrameWork.RmgYantraTest
 {/// <summary>
 /// TestMethods for testing
 /// </summary>
-    [TestClass]
-    public class EmployeePost 
+
+    public class EmployeePost : BaseClass
     {
         [TestMethod]
-        [TestCategory("Employee")]
+        [TestCategory("Practice")]
         public void EmployeesPost()
         {
             string url = ("http://localhost:8084/");
             IRestClient client=new RestClient(url);
-            IRestRequest request=new RestRequest(EndPoints.addProject, Method.POST);
+            IRestRequest request=new RestRequest(endPoints.addProject, Method.POST);
             Project project = new Project
             {
                 createdBy = "varunsn",
@@ -35,7 +35,8 @@ namespace RestSharpFrameWork.RmgYantraTest
             Console.WriteLine(response.IsSuccessful);
         }
         
-        [TestMethod,TestCategory("GET")]
+        [TestMethod]
+        [TestCategory("Practice")]
         public void GetEmp()
         {
             string url = "http://localhost:8084/employees";

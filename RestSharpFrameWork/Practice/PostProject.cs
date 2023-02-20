@@ -13,18 +13,19 @@ namespace RestSharpFrameWork.RmgYantraTest
     /// <summary>
     /// TestMethods for testing
     /// </summary>
-    [TestClass]
+    
     public class PostProject : BaseClass
     {
         [TestMethod]
-        [TestCategory("POST")]
+        [TestCategory("Practice")]
         public void PostProjectTest() 
         {
             RestSharpUtils rt= new RestSharpUtils();
             
             Project p=new Project();
-            var body=p.ProjectBody("On Going");
-            var response=rt.Post(EndPoints.addProject,body);
+            Status status=new Status();
+            var body=p.ProjectBody("nextLevel",status.created);
+            var response=rt.Post(endPoints.addProject,body);
             Console.WriteLine(response.Content);
         }
     }

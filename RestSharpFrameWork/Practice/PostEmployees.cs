@@ -13,16 +13,16 @@ namespace RestSharpFrameWork.RmgYantraTest
     /// <summary>
     /// TestMethods for testing
     /// </summary>
-    [TestClass]
+   
     public class PostEmployees : BaseClass
     {
         
         [TestMethod]
-        [TestCategory("POST")]
+        [TestCategory("Practice")]
         public void PostProject()
         {
-            Utilitys ut = new Utilitys();
-            string userName = "varu1nsn" + ut.RandomInt();
+          cSharpUtilitys = new CSharpUtilitys();
+            string userName = "varu1nsn" + cSharpUtilitys.RandomInt();
 
             IRestClient client=new RestClient("http://localhost:8084/");
             ODBCValidation userNameValid= new ODBCValidation();

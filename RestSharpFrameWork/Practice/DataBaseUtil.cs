@@ -10,10 +10,12 @@ using System.Web.UI.WebControls;
 namespace RestSharpFrameWork.generic
 {
     //Used for Testing only 
-    [TestClass]
-    public class DataBaseUtil : BaseClass
+    //[TestClass]
+    public class DataBaseUtil 
     {
-       [TestMethod,TestCategory("odbc")]
+        OdbcCommand command;
+
+       [TestMethod,TestCategory("Practice")]
        public void odbc() {
 
             string connectionString = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
@@ -32,19 +34,5 @@ namespace RestSharpFrameWork.generic
                 Console.WriteLine(response[0]+" "+ response[1]+" " +response[2]+" "+response[3] + " " + response[4] + " " + response[5]);
             }
        }
-        [TestMethod]
-        [TestCategory("DataBase")]
-        public void DataValidation()
-        {
-            string query = "select * from employee";
-            string column = "select column_name from information_schema.columns where table_name=\"employee\"";
-            command = new OdbcCommand(column,connection);
-            var response=command.ExecuteReader();
-
-            while (response.Read())
-            {
-                Console.WriteLine(response[0]);
-            }          
-        }        
     }
 }

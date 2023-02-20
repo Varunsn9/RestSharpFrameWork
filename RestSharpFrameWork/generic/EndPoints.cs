@@ -9,28 +9,73 @@ namespace RestSharpFrameWork.generic
 { /// <summary>
   /// Endpoint for all the Api Testing
   /// </summary>
-    public class EndPoints
+
+    public interface IEndPoints
     {
         /// <summary>
-        /// employeeId is stored with "employees/{endpoint}"
-        /// is used to perform action on employee by EmployeeID
+        /// To Get Update and Delete an employee by id
         /// </summary>
-        public static string employeesId="employees/{endpoint}";
+        string employeesId { get; set; }
 
         /// <summary>
-        /// employeeId is stored with "employees" 
+        /// create employee/Post and Get all employees 
         /// </summary>
-        public static string employees = "employees/";
-        public static string employeesUserName = "employee/{endpoint}/";
-        public static string login = "login";
-        public static string error = "error";
-        
-        public static string addProject = "addProject/";
-        public static string projects = "projects/";
+        string employees { get; set; }
+       
         /// <summary>
-        /// project id is for specifing perticular project for performing GET , PUT and Delete
+        /// To Get an employee by UserName
         /// </summary>
-        public static string projectsId = "projects/{projectId}";
+        string employeesUserName { get; set; }
+
+        /// <summary>
+        /// To Get Authenticate
+        /// </summary>
+        string login { get; set; }
+
+        /// <summary>
+        /// To Get head post put delete options put patch error
+        /// </summary>
+        string error { get; set; }
+
+        /// <summary>
+        /// To Post a project/ create a project
+        /// </summary>
+        string addProject { get; set; }
+
+        /// <summary>
+        /// To Get All the projects
+        /// </summary>
+        string projects { get; set; }
+
+        /// <summary>
+        /// To Get Update/PUT and Delete an projects by id
+        /// </summary>
+        string projectsId { get; set; }
+    }
+
+        public class EndPoints : IEndPoints
+    {
+
+        public string employeesId { get; set; }
+        public string employees { get; set; }
+        public string employeesUserName { get; set; }
+        public string login { get; set; }
+        public string error { get; set; }
+        public string addProject { get; set; }
+        public string projects { get; set; }
+        public string projectsId { get; set; }
+
+        public EndPoints()
+        {
+              employeesId = "employees/{endpoint}";
+              employees = "employees/";
+              employeesUserName = "employee/{endpoint}/";
+              login = "login";
+              error = "error";
+              addProject = "addProject/";
+              projects = "projects/";
+              projectsId = "projects/{endpoint}/";
+        }
     }
    
 }
