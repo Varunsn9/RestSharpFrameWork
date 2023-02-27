@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Bytescout.Spreadsheet;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharpFrameWork.generic;
@@ -16,10 +17,10 @@ namespace RestSharpFrameWork.RmgYantraTest
     [TestClass]
     public class GetRmgTest : BaseClass
     {
-        string UserName = "varu1nsn430";
-        string empId = "TYP_00620";
-        string projectName = "TESTINAPI";
-        string projectId = "TY_PROJ_402";
+        string UserName = "varunsn";
+        string empId = "TYP_01066";
+        string projectName = "ynittee";
+        string projectId = "TY_PROJ_1455";
 
         [TestMethod]
         [TestCategory("GET")]
@@ -71,8 +72,9 @@ namespace RestSharpFrameWork.RmgYantraTest
             endPoints = new EndPoints();
             restSharpUtils = new RestSharpUtils();
             var response = restSharpUtils.Get(endPoints.employeesId,empId);
-            Assert.IsTrue(response.IsSuccessful, "IsSuccessful");
 
+            Assert.IsTrue(response.IsSuccessful, "IsSuccessful");
+         
             // Validate response JSONBody
             Assert.IsTrue(restSharpUtils.validationJSONBody(response, empId));
 
@@ -83,6 +85,7 @@ namespace RestSharpFrameWork.RmgYantraTest
             Assert.AreEqual("application/json", response.ContentType, "Unexpected content type");
 
         }
+
         [TestMethod]
         [TestCategory("GET")]
         public void GetAllProjects()
@@ -90,10 +93,10 @@ namespace RestSharpFrameWork.RmgYantraTest
             endPoints = new EndPoints();
             restSharpUtils = new RestSharpUtils();
             var response = restSharpUtils.Get(endPoints.projects);
-            Assert.IsTrue(response.IsSuccessful, "IsSuccessful");
+            Assert.IsTrue(response.IsSuccessful, "Not Successful");
 
             // Validate response JSONBody
-            Assert.IsTrue(restSharpUtils.validationJSONBody(response, projectName));
+            Assert.IsTrue(restSharpUtils.validationJSONBody(response, projectName),response.Content);
 
             // Validate response status code
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode, "Unexpected status code");
@@ -121,6 +124,50 @@ namespace RestSharpFrameWork.RmgYantraTest
             Assert.AreEqual("application/json", response.ContentType, "Unexpected content type");
 
         }
-      
+
+        [TestMethod]
+        [TestCategory("GET")]
+        [DynamicData(nameof(EmployeeUserName),DynamicDataSourceType.Method)]
+        public void EmployeeByUserNameTest(string username)
+        {
+            endPoints=new EndPoints();
+            restSharpUtils = new RestSharpUtils();
+            var response = restSharpUtils.Get(endPoints.employeesUserName, username);
+            Assert.IsTrue(response.IsSuccessful);
         }
+
+
+        public static IEnumerable<object[]> EmployeeUserName()
+        {
+            Spreadsheet spreadsheet = new Spreadsheet();
+            spreadsheet.LoadFromFile("C:\\Users\\VARUN SN\\Desktop\\RestSharp\\RestSharpFrameWork\\RestSharpFrameWork\\Resources\\Data.xlsx");
+            var sheet = spreadsheet.Workbook.Worksheets["EMPLOYEE"];
+            var maxROW = sheet.UsedRangeRowMax;
+            var maxcol = sheet.UsedRangeColumnMax;
+
+            for (int i = 1; i < maxROW; i++)
+            {
+                string username = sheet.Cell(i, 4).ToString();
+                yield return new object[] { username };
+
+            }
+        }
+
+        public static IEnumerable<object[]> EmployeeById()
+        {
+            Spreadsheet spreadsheet = new Spreadsheet();
+            spreadsheet.LoadFromFile("C:\\Users\\VARUN SN\\Desktop\\RestSharp\\RestSharpFrameWork\\RestSharpFrameWork\\Resources\\Data.xlsx");
+            var sheet = spreadsheet.Workbook.Worksheets["EMPLOYEE"];
+            var maxROW = sheet.UsedRangeRowMax;
+            var maxcol = sheet.UsedRangeColumnMax;
+
+            for (int i = 1; i < maxROW; i++)
+            {
+                string username = sheet.Cell(i, 4).ToString();
+                yield return new object[] { username };
+
+            }
+        }
+
+    }
 }

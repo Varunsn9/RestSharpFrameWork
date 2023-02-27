@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="generic\BaseClass.cs" />
+    <Compile Include="Practice\Coding.cs" />
     <Compile Include="Practice\DataBaseUtil.cs" />
     <Compile Include="generic\EndPoints.cs" />
     <Compile Include="generic\ExcelUtility.cs" />
@@ -168,6 +169,8 @@
     <Compile Include="Practice\OdbcTestClass.cs" />
     <Compile Include="Practice\PostEmployees.cs" />
     <Compile Include="Practice\PostProject.cs" />
+    <Compile Include="Resources\Data.cs" />
+    <Compile Include="RmgYantraTest\DeleteRmgTest.cs" />
     <Compile Include="RmgYantraTest\GetRmgTest.cs" />
     <Compile Include="RmgYantraTest\PostRmgTest.cs" />
     <Compile Include="UnitTest1.cs" />
@@ -178,10 +181,10 @@
     <None Include="Configure.Designer.runsettings" />
     <None Include="packages.config" />
     <None Include="Proj.Designer.runsettings" />
+    <None Include="Resources\Data.csv" />
+    <None Include="Resources\Data.xlsx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Configure.resx" />
     <EmbeddedResource Include="Proj.resx" />

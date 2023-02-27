@@ -35,13 +35,13 @@ namespace RestSharpFrameWork.generic
         }
 
 
-        public IRestResponse Get( string endpoints,string employeeUserName)
+        public IRestResponse Get( string endpoints,string value)
         {
             // Create a new RestRequest object with the provided endpoint and HTTP GET method
             request = new RestRequest(endpoints, Method.GET);
 
             // Add a URL segment to the request using the "employeeUserName" parameter
-            request.AddUrlSegment("endpoint", employeeUserName);
+            request.AddUrlSegment("endpoint", value);
 
             // Execute the request using a RestSharp RestClient object and store the response
             IRestResponse response = client.Execute(request);
@@ -50,10 +50,19 @@ namespace RestSharpFrameWork.generic
             return response;
         }
 
-        public IRestResponse Delete(IRestClient client, string endpoints)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="endpoints"></param>
+        /// <param name="value">string value to delete</param>
+        /// <returns></returns>
+        public IRestResponse Delete(string endpoints, string value)
         {
             // Create a new RestRequest object with the provided endpoint and HTTP DELETE method
             RestRequest request = new RestRequest(endpoints, Method.DELETE);
+
+            // Add a URL segment to the request using the "employeeUserName" parameter
+            request.AddUrlSegment("endpoint", value);
 
             // Execute the request using the provided IRestClient object and store the response
             IRestResponse response = client.Execute(request);

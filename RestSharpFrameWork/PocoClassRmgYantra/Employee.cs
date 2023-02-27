@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Bytescout.Spreadsheet;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using RestSharpFrameWork.generic;
 using System;
@@ -7,14 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
 {
     /// <summary>
     /// Employee Poco Class
     /// </summary>
-    public class Employee
+    /// 
+
+    public class Employee 
     {
+
+
         [JsonProperty("designation")]
         public string designation { get; set; }
 
@@ -43,6 +50,10 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
         public string username { get; set; }
 
 
+        IDesignation design=new Designation();
+        IRole roleObj = new Role(); 
+
+
         /// <summary>
         /// Method to return body of employee returns Employee type
         /// </summary>
@@ -65,6 +76,74 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
                     return employee;
             }
 
+        
+
+
+
+
+        public Employee employeeData(string designation, string experience, string empName, string email, string username, string project, string role,string mobileNo)
+        {
+            Employee employee = new Employee
+            {
+                designation = designation,
+                empName = empName,
+                email = email,
+                username = username,
+                project = project,
+                role = role,
+                mobileNo = mobileNo
+            };
+            return employee;
+        }
+
+    }
+    public interface IDesignation
+    {
+        string software_Engineer { get; set; }
+        string sDET { get; set; }
+        string automation_Test_Engineer { get; set; }
+        string software_Developer { get; set; }
+        string manual_Test_Engineer { get; set; }
+
+    }
+    public class Designation : IDesignation
+    {
+        public string software_Engineer { get; set; }
+        public string sDET { get; set; }
+        public string automation_Test_Engineer { get; set; }
+        public string software_Developer { get; set; }
+        public string manual_Test_Engineer { get; set; }
+
+
+        public Designation()
+        {
+            software_Engineer = "Software Engineer";
+            sDET = "SDET";
+            automation_Test_Engineer = "Automation Test Engineer";
+            software_Developer = "Software Developer";
+            manual_Test_Engineer = "Manual Test Engineer";
+
+        }
+    }
+
+    public interface IRole
+    {
+        string rOLE_ADMIN { get; set; }
+        string rOLE_EMPLOYEE { get; set; }
+       
+    }
+    public class Role : IRole
+    {
+        public string rOLE_ADMIN { get; set; }
+        public string rOLE_EMPLOYEE { get; set; }
+       
+
+        public Role()
+        {
+            rOLE_ADMIN = "ROLE_ADMIN";
+            rOLE_EMPLOYEE = "ROLE_EMPLOYEE";
+        
+        }
     }
 
 }

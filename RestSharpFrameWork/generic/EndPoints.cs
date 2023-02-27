@@ -67,11 +67,11 @@ namespace RestSharpFrameWork.generic
 
         public EndPoints()
         {
-              employeesId = "employees/{endpoint}";
+              employeesId = "employees/{endpoint}/";
               employees = "employees/";
               employeesUserName = "employee/{endpoint}/";
-              login = "login";
-              error = "error";
+              login = "login/";
+              error = "error/";
               addProject = "addProject/";
               projects = "projects/";
               projectsId = "projects/{endpoint}/";

@@ -1,4 +1,5 @@
-﻿using Dynamitey;
+﻿using Bytescout.Spreadsheet;
+using Dynamitey;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
-[assembly: Parallelize(Workers = 5, Scope = ExecutionScope.MethodLevel)]
+//[assembly: Parallelize(Workers = 5, Scope = ExecutionScope.MethodLevel)]
 
 
 namespace RestSharpFrameWork.generic
@@ -29,11 +30,7 @@ namespace RestSharpFrameWork.generic
         [AssemblyInitialize]
         public static void AssemblyInilization(TestContext context)
         {
-            /*testContext = context;   
-            string dataBaseConnection = context.Properties["DataBaseURL"].ToString(); ;
-            odbcConnection = new OdbcConnection(dataBaseConnection);
-            odbcConnection.Open();
-*/        
+            Console.WriteLine("hi");
         }
 
         [ClassInitialize]
@@ -51,8 +48,9 @@ namespace RestSharpFrameWork.generic
         [TestCleanup]
         public void ClosingDataBase()
         {
-
         }
+
+       
 
     }
 }

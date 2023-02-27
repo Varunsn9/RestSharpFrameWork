@@ -30,10 +30,12 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
         /// Method to return body type of Employee
         /// Created, On Goging and Completed
         /// </summary>
-        /// <param name="Status">should provide a Status parameter
+        /// <param name="Status">should provide a string Status parameter
+        /// </param>
+        /// <param name="ProjectName">should provide a string ProjectName parameter
         /// </param>
         /// <returns></returns>
-        public Project ProjectBody(string projectName, string status)
+        public Project ProjectBody(string projectName,string status)
         {
             
             CSharpUtilitys utilitys = new CSharpUtilitys();
@@ -41,14 +43,29 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
             Project pro = new Project
             {
                 createdBy = "varun",
-                projectName = projectName,
+                projectName = projectName+num,
                 status = status.ToString(),
                 teamSize = 0
 
             };
             return pro;
         }
+
+        public Project ProjectBody(string createdBy,string projectName, string status,string teamsize)
+        {
+
+            Project pro = new Project
+            {
+                createdBy = createdBy,
+                projectName = projectName,
+                status = status,
+                teamSize = int.Parse(teamsize)
+
+            };
+            return pro;
+        }
     }
+
     public interface IStatus
     {
         string created { get; set; }

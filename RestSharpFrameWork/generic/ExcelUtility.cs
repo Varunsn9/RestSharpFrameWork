@@ -31,5 +31,21 @@ namespace RestSharpFrameWork.generic
         }
     }
 
-}
+        public static IEnumerable<object[]> DataEmployee()
+        {
+            Spreadsheet spreadsheet = new Spreadsheet();
+            spreadsheet.LoadFromFile("C:\\Users\\VARUN SN\\Desktop\\RestSharp\\RestSharpFrameWork\\RestSharpFrameWork\\Resources\\Data.xlsx");
+            var sheet = spreadsheet.Workbook.Worksheets["EMPLOYEEID"];
+            var maxrow = sheet.UsedRangeRowMax;
+            var maxcol = sheet.UsedRangeColumnMax;
+
+            for (int i = 1; i <= maxrow; i++)
+            {
+                string employeeId = sheet.Cell(i, 0).ToString();
+                yield return new object[] { employeeId };
+            }
+
+        }
+
+    }
 }
