@@ -96,7 +96,7 @@ namespace RestSharpFrameWork.RmgYantraTest
         public static IEnumerable<object[]> Employee()
         {
             Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.LoadFromFile("C:\\Users\\VARUN SN\\Desktop\\RestSharp\\RestSharpFrameWork\\RestSharpFrameWork\\Resources\\Data.xlsx");
+            spreadsheet.LoadFromFile("D:\\VisualStudioRepos\\RestSharpFrameWork\\Resources\\Data.xlsx");
             var sheet = spreadsheet.Workbook.Worksheets["EMPLOYEE"];
             var maxROW = sheet.UsedRangeRowMax;
             var maxcol = sheet.UsedRangeColumnMax;
@@ -120,7 +120,7 @@ namespace RestSharpFrameWork.RmgYantraTest
         public static IEnumerable<object[]> Project()
         {
             Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.LoadFromFile("C:\\Users\\VARUN SN\\Desktop\\RestSharp\\RestSharpFrameWork\\RestSharpFrameWork\\Resources\\Data.xlsx");
+            spreadsheet.LoadFromFile("D:\\VisualStudioRepos\\RestSharpFrameWork\\Resources\\Data.xlsx");
             var sheet = spreadsheet.Workbook.Worksheets["PROJECT"];
             var maxROW = sheet.UsedRangeRowMax;
             var maxcol = sheet.UsedRangeColumnMax;

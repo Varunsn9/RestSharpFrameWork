@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 namespace RestSharpFrameWork.generic
 {
     //Used for Testing only 
-    //[TestClass]
+    [TestClass]
     public class DataBaseUtil 
     {
         OdbcCommand command;
