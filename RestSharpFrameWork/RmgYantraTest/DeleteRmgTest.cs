@@ -78,8 +78,9 @@ namespace RestSharpFrameWork.RmgYantraTest
                 string projectId = sheet.Cell(i, 0).ToString();
                 yield return new object[] { projectId };
             }
-
-
+            
+            spreadsheet.Close();
+            spreadsheet.Dispose();
         }
     }
 }
