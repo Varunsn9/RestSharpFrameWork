@@ -68,21 +68,21 @@ namespace RestSharpFrameWork.PocoClassRmgYantra.EmployeeController
 
     public interface IStatus
     {
-        string created { get; set; }
-        string completed { get; set; }
-        string onGoging { get; set; }
+        string Created { get; set; }
+        string Completed { get; set; }
+        string OnGoging { get; set; }
     }
     public class Status : IStatus
     {
-        public string created { get; set; }
-        public string completed { get; set; }
-        public string onGoging { get; set; }
+        public string Created { get; set; }
+        public string Completed { get; set; }
+        public string OnGoging { get; set; }
 
         public Status()
         {
-            created = "Created";
-            completed = "Completed";
-            onGoging = "OnGoing";
+            Created = "Created";
+            Completed = "Completed";
+            OnGoging = "OnGoing";
         }
 }
     

@@ -24,7 +24,7 @@ namespace RestSharpFrameWork.RmgYantraTest
             
             Project p=new Project();
             Status status=new Status();
-            var body=p.ProjectBody("nextLevel",status.created);
+            var body=p.ProjectBody("nextLevel",status.Created);
             var response=rt.Post(endPoints.addProject,body);
             Console.WriteLine(response.Content);
         }

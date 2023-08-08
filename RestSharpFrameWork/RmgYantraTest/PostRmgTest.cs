@@ -14,7 +14,7 @@ namespace RestSharpFrameWork.RmgYantraTest
     [TestClass]
     public class PostRmgTest : BaseClass
     {
-        IEndPoints endPoints = new EndPoints();
+       // IEndPoints endPoints = new EndPoints();
         Employee employee= new Employee();
 
         [TestMethod]
@@ -51,7 +51,7 @@ namespace RestSharpFrameWork.RmgYantraTest
             
             //storing json body in project type in ProjectBody
             //ProjectBody takes two string value project name and status
-            var projectBody=project.ProjectBody("teas",status.completed);
+            var projectBody=project.ProjectBody("teas",status.Completed);
                         
             //storing response from Post Method of RestSharpUtils class to post the projectBody 
             //creating project
@@ -61,7 +61,7 @@ namespace RestSharpFrameWork.RmgYantraTest
             Assert.IsTrue(response.IsSuccessful,response.StatusCode.ToString()/* message */);
             
             //validating that the project is created inside the OBDC database
-            Assert.IsTrue(odbcvalidation.DataValidate(status.completed, "project", "status"), "no data found");
+            Assert.IsTrue(odbcvalidation.DataValidate(status.Completed, "project", "status"), "no data found");
                 
         }
 
