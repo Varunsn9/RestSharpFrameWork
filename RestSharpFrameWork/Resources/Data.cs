@@ -88,15 +88,16 @@ namespace RestSharpFrameWork.Resources
             data.ProjectId();
         }
 
+        [TestMethod]
+        [TestCategory("Storing and testing database")]
 
         public void EmployeeId()
         {
             Spreadsheet spreadsheet = new Spreadsheet();
-            string excelpath = "C:\\Users\\VARUN SN\\Desktop\\RestSharp\\RestSharpFrameWork\\RestSharpFrameWork\\Resources\\Data.xlsx";
-            spreadsheet.LoadFromFile("C:\\Users\\VARUN SN\\Desktop\\RestSharp\\RestSharpFrameWork\\RestSharpFrameWork\\Resources\\Data.xlsx");
+            string excelpath = PathsConsts.excelPath;
+            spreadsheet.LoadFromFile(excelpath);
             var sheet=spreadsheet.Workbook.Worksheets["EMPLOYEEID"];
-            string value = "";
-            string connectionString = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+            string connectionString = PathsConsts.connectionString;
             OdbcConnection odbcConnection = new OdbcConnection(connectionString);
             odbcConnection.Open();
             string query = "select emp_id from employee";
@@ -122,7 +123,7 @@ namespace RestSharpFrameWork.Resources
             string excelpath = PathsConsts.excelPath;
             spreadsheet.LoadFromFile(excelpath);
             var sheet = spreadsheet.Workbook.Worksheets["PROJECTID"];
-            string connectionString = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+            string connectionString =PathsConsts.connectionString;
             OdbcConnection odbcConnection = new OdbcConnection(connectionString);
             odbcConnection.Open();
             string query = "select project_id from project";

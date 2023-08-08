@@ -14,7 +14,7 @@ namespace RestSharpFrameWork.generic
     public class ODBCValidation : BaseClass
     {
         OdbcCommand command;
-        string connections = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+        string connections = PathsConsts.connectionString;
         
         public ODBCValidation()
         {

@@ -20,7 +20,7 @@ namespace RestSharpFrameWork.RmgYantraTest
         string UserName = "varunsn";
         string empId = "TYP_01066";
         string projectName = "ynittee";
-        string projectId = "TY_PROJ_1455";
+        string projectId = "TY_PROJ_001";
 
         [TestMethod]
         [TestCategory("GET")]
