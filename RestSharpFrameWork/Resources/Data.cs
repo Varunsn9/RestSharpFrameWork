@@ -42,7 +42,7 @@ namespace RestSharpFrameWork.Resources
         public static IEnumerable<object[]> exceldata()
         {
             Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.LoadFromFile("C:\\Users\\VARUN SN\\Desktop\\RestSharp\\RestSharpFrameWork\\RestSharpFrameWork\\Resources\\Data.xlsx");
+            spreadsheet.LoadFromFile(PathsConsts.excelPath);
             var sheet = spreadsheet.Workbook.Worksheets["DATA"];
             var maxROW = sheet.UsedRangeRowMax;
             var maxcol = sheet.UsedRangeColumnMax;
@@ -90,7 +90,6 @@ namespace RestSharpFrameWork.Resources
 
         [TestMethod]
         [TestCategory("Storing and testing database")]
-
         public void EmployeeId()
         {
             Spreadsheet spreadsheet = new Spreadsheet();
@@ -136,7 +135,6 @@ namespace RestSharpFrameWork.Resources
                 sheet.Cell(i, 0).Value = response[0].ToString();
                 i++;
                 spreadsheet.SaveAs(excelpath);
-
             }
             spreadsheet.Close();
         }
