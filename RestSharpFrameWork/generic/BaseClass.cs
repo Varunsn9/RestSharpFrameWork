@@ -25,7 +25,7 @@ namespace RestSharpFrameWork.generic
         public ODBCValidation oDBCValidation;
         public RestSharpUtils restSharpUtils;
         public CSharpUtilitys cSharpUtilitys;
-        public IEndPoints endPoints;
+        public IEndPoints endPoints= new EndPoints();
 
         [AssemblyInitialize]
         public static void AssemblyInilization(TestContext context)
