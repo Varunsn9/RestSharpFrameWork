@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace RestSharpFrameWork.Practice
 {
-   // [TestClass]
+    [TestClass]
     public class OdbcTestClass : BaseClass
     {
         [TestMethod]
         [TestCategory("ODBC")]
         public void obdc()
         {
-            string connections = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+            string connections = "Driver={MySQL ODBC 8.1 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
             OdbcConnection odbcConnection = new OdbcConnection(connections);
             odbcConnection.Open();
             
