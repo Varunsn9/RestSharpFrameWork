@@ -20,7 +20,7 @@ namespace RestSharpFrameWork.generic
     {
         public static TestContext testContext;
 
-        public string dataBaseConnection = "Driver={MySQL ODBC 8.1 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+        public string dataBaseConnection = PathsConsts.connectionString;
 
         public static OdbcConnection odbcConnection;
         public ExcelUtility excelUtility;
