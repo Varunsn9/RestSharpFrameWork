@@ -14,7 +14,7 @@ namespace RestSharpFrameWork.generic
     public class ODBCValidation : BaseClass
     {
         OdbcCommand command;
-        string connections = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+        string connections = PathsConsts.connectionString;
         
         public ODBCValidation()
         {
@@ -76,7 +76,6 @@ namespace RestSharpFrameWork.generic
             string query = "select * from " + tableName;
             command = new OdbcCommand(query, odbcConnection);
             var response = command.ExecuteReader();
-            string row = "";
 
             IList<string> columns = new List<string>();
             while (response.Read())
@@ -112,7 +111,6 @@ namespace RestSharpFrameWork.generic
             string query = "select "+columnName+" from "+tableName;
             command = new OdbcCommand(query, odbcConnection);
             var response = command.ExecuteReader();
-            int num = 0;
            
             IList<string> name = new List<string>();
             while (response.Read())

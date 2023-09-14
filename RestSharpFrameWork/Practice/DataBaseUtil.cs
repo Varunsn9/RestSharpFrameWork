@@ -27,7 +27,7 @@ namespace RestSharpFrameWork.generic
             Console.WriteLine(connection.Driver);
             Console.WriteLine(connection.ServerVersion);
             string query = "select * from employee";
-            OdbcCommand command= new OdbcCommand(query,connection);
+            command= new OdbcCommand(query,connection);
             var response=command.ExecuteReader();
             while (response.Read())
             {

@@ -155,6 +155,7 @@
     <Compile Include="generic\BaseClass.cs" />
     <Compile Include="generic\PathsConsts.cs" />
     <Compile Include="Practice\Coding.cs" />
+    <Compile Include="Practice\CurrentDirectoryClassTesting.cs" />
     <Compile Include="Practice\DataBaseUtil.cs" />
     <Compile Include="generic\EndPoints.cs" />
     <Compile Include="generic\ExcelUtility.cs" />
