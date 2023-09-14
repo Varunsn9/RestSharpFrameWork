@@ -19,7 +19,9 @@ namespace RestSharpFrameWork.generic
     public class BaseClass
     {
         public static TestContext testContext;
-        public string dataBaseConnection = PathsConsts.connectionString;
+
+        public string dataBaseConnection = "Driver={MySQL ODBC 8.1 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+
         public static OdbcConnection odbcConnection;
         public ExcelUtility excelUtility;
         public ODBCValidation oDBCValidation;
@@ -31,6 +33,7 @@ namespace RestSharpFrameWork.generic
         public static void AssemblyInilization(TestContext context)
         {
             Console.WriteLine("hi");
+            testContext = context;
         }
 
         [ClassInitialize]
@@ -42,7 +45,7 @@ namespace RestSharpFrameWork.generic
         [TestInitialize]
         public void OpeningDataBase()
         {
-
+            testContext.WriteLine(testContext.TestName);
         }
 
         [TestCleanup]

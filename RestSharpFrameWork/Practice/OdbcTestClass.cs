@@ -16,7 +16,8 @@ namespace RestSharpFrameWork.Practice
         [TestCategory("ODBC")]
         public void obdc()
         {
-            string connections = PathsConsts.connectionString;
+            string connections = "Driver={MySQL ODBC 8.1 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+
             OdbcConnection odbcConnection = new OdbcConnection(connections);
             odbcConnection.Open();
             
