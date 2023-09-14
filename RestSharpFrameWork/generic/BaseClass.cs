@@ -19,13 +19,15 @@ namespace RestSharpFrameWork.generic
     public class BaseClass
     {
         public static TestContext testContext;
+
         public string dataBaseConnection = "Driver={MySQL ODBC 8.1 Unicode Driver};Server=localhost:3306;Database=projects;User=root;Password=root;";
+
         public static OdbcConnection odbcConnection;
         public ExcelUtility excelUtility;
         public ODBCValidation oDBCValidation;
         public RestSharpUtils restSharpUtils;
         public CSharpUtilitys cSharpUtilitys;
-        public IEndPoints endPoints;
+        public IEndPoints endPoints= new EndPoints();
 
         [AssemblyInitialize]
         public static void AssemblyInilization(TestContext context)
